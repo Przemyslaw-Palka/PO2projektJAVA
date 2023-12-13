@@ -1,0 +1,60 @@
+-- Gracz
+INSERT INTO Gracz (id_gracz, imie, zwyciestwa, przegrane) VALUES (1, 'LureR', 1, 1);
+INSERT INTO Gracz (id_gracz, imie, zwyciestwa, przegrane) VALUES (2, 'bercix', 1, 1);
+INSERT INTO Gracz (id_gracz, imie, zwyciestwa, przegrane) VALUES (3, 'Drakula', 1, 1);
+-- Postacie
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (1, 'Ninja', 30, 60, 3);
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (2, 'Dzon', 15, 100, 2);
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (3, 'WujeZameryki', 25, 80, 1);
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (4, 'WojownikUlicy', 20, 90, 1);
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (5, 'Policjant1', 20, 110, 2);
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (6, 'Sebastian', 10, 60, 3);
+INSERT INTO Postacie (id_postac, nazwa_postaci, DMG, HP, zasieg_ruchu) VALUES (7, 'PracownikMaka', 15, 70, 1);
+
+-- Sklad
+INSERT INTO Sklad (id_skladu, id_gracz, id_postaci_1, id_postaci_2, id_postaci_3, id_postaci_4) VALUES (1, 1, 1, 5, 2, 3);
+INSERT INTO Sklad (id_skladu, id_gracz, id_postaci_1, id_postaci_2, id_postaci_3, id_postaci_4) VALUES (2, 2, 6, 2, 3, 7);
+INSERT INTO Sklad (id_skladu, id_gracz, id_postaci_1, id_postaci_2, id_postaci_3, id_postaci_4) VALUES (3, 3, 5, 1, 3, 7);
+
+-- Sklad_Postacie
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (1, 1);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (1, 5);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (1, 2);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (1, 3);
+
+
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (2, 6);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (2, 2);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (2, 3);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (2, 7);
+
+
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (3, 5);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (3, 1);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (3, 3);
+INSERT INTO Sklad_Postacie (id_skladu, id_postac) VALUES (3, 7);
+
+-- Mapa
+INSERT INTO Mapa (id_mapa, wspolrzedne_mapy_x, wspolrzedne_mapy_y) VALUES (1, 10, 20);
+
+-- Mecz
+INSERT INTO Mecz (id_mecz, id_gracz_1, id_gracz_2, wygrany, przegrany) VALUES (1, 1, 2, 1, 2);
+INSERT INTO Mecz (id_mecz, id_gracz_1, id_gracz_2, wygrany, przegrany) VALUES (2, 2, 3, 2, 3);
+INSERT INTO Mecz (id_mecz, id_gracz_1, id_gracz_2, wygrany, przegrany) VALUES (3, 1, 3, 3, 1);
+
+-- Tura
+INSERT INTO Tura (id_tury, kto_sie_rusza, id_mecz, akcja) VALUES (1, 1, 1, 'Ruch');
+INSERT INTO Tura (id_tury, kto_sie_rusza, id_mecz, akcja) VALUES (2, 2, 1, 'Atak');
+INSERT INTO Tura (id_tury, kto_sie_rusza, id_mecz, akcja) VALUES (3, 1, 1, 'Atak');
+INSERT INTO Tura (id_tury, kto_sie_rusza, id_mecz, akcja) VALUES (4, 2, 1, 'Ruch');
+INSERT INTO Tura (id_tury, kto_sie_rusza, id_mecz, akcja) VALUES (5, 1, 1, 'Atak');
+
+-- Ruchy
+INSERT INTO Ruchy (id_ruchu, id_tury, id_mapa, id_gracza_ruszajcego, id_postaci_ruszajacej, poczatkowy_x, poczatkowy_y, koncowy_x, koncowy_y) VALUES (1, 1, 1, 1, 1, 10, 20, 12, 22);
+INSERT INTO Ruchy (id_ruchu, id_tury, id_mapa, id_gracza_ruszajcego, id_postaci_ruszajacej, poczatkowy_x, poczatkowy_y, koncowy_x, koncowy_y) VALUES (2, 2, 1, 2, 2, 15, 25, 18, 28);
+INSERT INTO Ruchy (id_ruchu, id_tury, id_mapa, id_gracza_ruszajcego, id_postaci_ruszajacej, poczatkowy_x, poczatkowy_y, koncowy_x, koncowy_y) VALUES (3, 3, 1, 1, 3, 8, 18, 10, 20);
+
+-- Ataki
+INSERT INTO Ataki (id_ataku, id_mecz, id_atakujacego, id_atakowanego, id_postaci_atakujacej, id_postaci_atakowanej) VALUES (1, 1, 2, 1, 3, 2);
+INSERT INTO Ataki (id_ataku, id_mecz, id_atakujacego, id_atakowanego, id_postaci_atakujacej, id_postaci_atakowanej) VALUES (2, 1, 1, 2, 2, 7);
+INSERT INTO Ataki (id_ataku, id_mecz, id_atakujacego, id_atakowanego, id_postaci_atakujacej, id_postaci_atakowanej) VALUES (3, 1, 1, 2, 1, 7);
